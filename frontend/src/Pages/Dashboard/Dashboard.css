@@ -1,242 +1,8 @@
-.dashboard-container {
-  padding: 30px;
-  background-color: var(--jira-bg-secondary);
-  min-height: calc(100vh - 60px);
-}
 
-.dashboard-heading {
-  margin-bottom: 25px;
-}
+/* =========================================
+   Dashboard Container
+========================================= */
 
-.dashboard-heading h2 {
-  font-size: 26px;
-  margin-bottom: 5px;
-}
-
-.dashboard-heading p {
-  color: var(--jira-muted);
-  font-size: 14px;
-}
-
-.dashboard-stats {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
-}
-
-.stat-card {
-  background-color: var(--jira-bg);
-  padding: 22px;
-  border: 1px solid var(--jira-border);
-  border-radius: var(--radius-md);
-  box-shadow: var(--shadow-sm);
-}
-
-.stat-card h6 {
-  color: var(--jira-muted);
-  font-size: 14px;
-  font-weight: 500;
-  margin-bottom: 12px;
-}
-
-.stat-card h3 {
-  font-size: 28px;
-  margin-bottom: 5px;
-}
-
-.stat-card p {
-  color: var(--jira-muted);
-  font-size: 12px;
-  margin-bottom: 0;
-}
-
-/* Responsive layout */
-@media (max-width: 992px) {
-  .dashboard-stats {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 576px) {
-  .dashboard-container {
-    padding: 18px;
-  }
-
-  .dashboard-stats {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* Admin project and task overview */
-.overview-section {
-  margin-top: 30px;
-}
-
-.overview-section h3 {
-  font-size: 20px;
-  margin-bottom: 18px;
-}
-
-.overview-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
-}
-
-.overview-card {
-  background-color: var(--jira-bg);
-  padding: 20px;
-  border: 1px solid var(--jira-border);
-  border-radius: var(--radius-md);
-  box-shadow: var(--shadow-sm);
-}
-
-.overview-card h6 {
-  color: var(--jira-muted);
-  font-size: 14px;
-  font-weight: 500;
-  margin-bottom: 12px;
-}
-
-.overview-card h3 {
-  font-size: 26px;
-  margin-bottom: 0;
-}
-
-/* Adjust the overview cards for smaller screens */
-@media (max-width: 992px) {
-  .overview-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 576px) {
-  .overview-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* Overall task completion progress */
-.progress-section {
-  margin-top: 30px;
-  padding: 22px;
-  background-color: var(--jira-bg);
-  border: 1px solid var(--jira-border);
-  border-radius: var(--radius-md);
-  box-shadow: var(--shadow-sm);
-}
-
-.progress-section h3 {
-  font-size: 20px;
-  margin-bottom: 20px;
-}
-
-.progress-details {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 10px;
-  font-size: 14px;
-}
-
-.progress-details strong {
-  color: var(--jira-primary);
-}
-
-.progress-track {
-  width: 100%;
-  height: 10px;
-  background-color: var(--jira-bg-secondary);
-  border-radius: 10px;
-  overflow: hidden;
-}
-
-.progress-fill {
-  height: 100%;
-  background-color: var(--jira-success);
-  border-radius: 10px;
-  transition: width 0.3s ease;
-}
-
-.progress-section p {
-  margin-top: 10px;
-  margin-bottom: 0;
-  color: var(--jira-muted);
-  font-size: 13px;
-}
-
-/* Manager dashboard project progress */
-/* Displays each managed project in its own card. */
-.manager-project-list {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 20px;
-}
-
-.manager-project-card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-  padding: 22px 16px;
-  background-color: var(--jira-bg);
-  border: 1px solid var(--jira-border);
-  border-radius: var(--radius-md);
-  box-shadow: var(--shadow-sm);
-  text-align: center;
-}
-
-.manager-project-card .progress-details {
-  margin-bottom: 12px;
-}
-
-/* Keep project progress bars consistent across dashboards */
-.manager-project-card .progress-track {
-  height: 9px;
-}
-
-
-/* Member dashboard task table */
-.member-task-table {
-  width: 100%;
-  overflow-x: auto;
-  background-color: var(--jira-bg);
-  border: 1px solid var(--jira-border);
-  border-radius: var(--radius-md);
-  box-shadow: var(--shadow-sm);
-}
-
-.member-task-table table {
-  width: 100%;
-  border-collapse: collapse;
-  text-align: left;
-}
-
-.member-task-table th,
-.member-task-table td {
-  padding: 16px 18px;
-  border-bottom: 1px solid var(--jira-border);
-  font-size: 14px;
-  white-space: nowrap;
-}
-
-.member-task-table th {
-  background-color: var(--jira-bg-secondary);
-  color: var(--jira-muted);
-  font-weight: 600;
-}
-
-.member-task-table tbody tr:last-child td {
-  border-bottom: none;
-}
-
-.member-task-table tbody tr:hover {
-  background-color: var(--jira-bg-secondary);
-}
-
-
-/* Give the dashboard a cleaner, more modern appearance */
 .dashboard-container {
   padding: 36px;
   background: #f5f7fc;
@@ -244,7 +10,10 @@
   color: #172b4d;
 }
 
-/* Improve the dashboard heading */
+/* =========================================
+   Dashboard Heading
+========================================= */
+
 .dashboard-heading {
   margin-bottom: 30px;
 }
@@ -254,6 +23,7 @@
   font-weight: 700;
   letter-spacing: -0.5px;
   color: #172b4d;
+  margin-bottom: 5px;
 }
 
 .dashboard-heading p {
@@ -261,7 +31,16 @@
   font-size: 14px;
 }
 
-/* Add a subtle lift effect to statistic cards */
+/* =========================================
+   Dashboard Statistics Cards
+========================================= */
+
+.dashboard-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
 .stat-card {
   position: relative;
   overflow: hidden;
@@ -282,15 +61,24 @@
   color: #64748b;
   font-size: 14px;
   font-weight: 600;
+  margin-bottom: 12px;
 }
 
 .stat-card h3 {
   color: #172b4d;
   font-size: 30px;
   font-weight: 700;
+  margin-bottom: 5px;
 }
 
-/* Add a subtle accent to each statistic card */
+.stat-card p {
+  color: #64748b;
+  font-size: 12px;
+  margin-bottom: 0;
+}
+
+/* Accent colours for statistic cards */
+
 .stat-card::before {
   content: "";
   position: absolute;
@@ -313,18 +101,34 @@
   background: #f59e0b;
 }
 
-/* Make section headings more consistent */
+/* =========================================
+   Project Overview
+========================================= */
+
+.overview-section {
+  margin-top: 30px;
+}
+
 .overview-section h3,
 .progress-section h3 {
   color: #172b4d;
   font-size: 20px;
   font-weight: 700;
+  margin-bottom: 18px;
 }
 
-/* Improve overview cards */
+.overview-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
 .overview-card {
+  padding: 20px;
+  background: #ffffff;
   border: 1px solid #e8edf5;
   border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
@@ -333,99 +137,43 @@
   box-shadow: 0 8px 18px rgba(15, 23, 42, 0.07);
 }
 
-.overview-card h3 {
-  color: #172b4d;
-  font-weight: 700;
+.overview-card h6 {
+  color: #64748b;
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 12px;
 }
 
-/* Improve progress section appearance */
-.progress-section,
-.manager-project-card {
+.overview-card h3 {
+  color: #172b4d;
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 0;
+}
+
+.overview-card p {
+  color: #64748b;
+  font-size: 13px;
+  margin-bottom: 0;
+}
+
+/* =========================================
+   Overall Circular Progress
+========================================= */
+
+.progress-section {
+  margin-top: 30px;
+  padding: 22px;
   background: #ffffff;
   border: 1px solid #e8edf5;
   border-radius: 12px;
   box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
 }
 
-.progress-track {
-  height: 11px;
-  background: #e9edf5;
+.progress-section h3 {
+  margin-bottom: 20px;
 }
 
-.progress-fill {
-  background: linear-gradient(90deg, #6366f1, #818cf8);
-}
-
-/* Adjust spacing on smaller screens */
-@media (max-width: 768px) {
-  .dashboard-container {
-    padding: 22px;
-  }
-
-  .dashboard-heading h2 {
-    font-size: 23px;
-  }
-}
-
-@media (max-width: 576px) {
-  .dashboard-container {
-    padding: 16px;
-  }
-
-  .stat-card {
-    padding: 20px;
-  }
-}
-
-
-/* Priority labels */
-.priority-badge,
-.status-badge {
-  display: inline-block;
-  padding: 5px 11px;
-  border-radius: 20px;
-  font-size: 12px;
-  font-weight: 600;
-  white-space: nowrap;
-}
-
-.priority-badge.high {
-  background: #fee2e2;
-  color: #b91c1c;
-}
-
-.priority-badge.medium {
-  background: #fef3c7;
-  color: #92400e;
-}
-
-.priority-badge.low {
-  background: #dcfce7;
-  color: #166534;
-}
-
-/* Task status labels */
-.status-badge.in-progress {
-  background: #dbeafe;
-  color: #1d4ed8;
-}
-
-.status-badge.pending {
-  background: #f1f5f9;
-  color: #475569;
-}
-
-.status-badge.overdue {
-  background: #fee2e2;
-  color: #b91c1c;
-}
-
-.status-badge.completed {
-  background: #dcfce7;
-  color: #166534;
-}
-
-/* Admin dashboard circular task completion ring */
 .completion-content {
   display: flex;
   flex-direction: column;
@@ -490,7 +238,36 @@
   color: #6b778c;
 }
 
-/* Circular progress indicators for individual manager projects. */
+/* =========================================
+   Manager Dashboard - Project Progress
+========================================= */
+
+.manager-project-list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.manager-project-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 22px 16px;
+  background: #ffffff;
+  border: 1px solid #e8edf5;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
+  text-align: center;
+}
+
+.manager-project-card h4 {
+  margin: 0;
+}
+
+/* Individual project circular progress indicators */
+
 .project-progress-ring {
   position: relative;
   width: 125px;
@@ -530,9 +307,137 @@
   color: #172b4d;
 }
 
+/* =========================================
+   Member Dashboard - Task Table
+========================================= */
+
+.member-task-table {
+  width: 100%;
+  overflow-x: auto;
+  background: #ffffff;
+  border: 1px solid #e8edf5;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
+}
+
+.member-task-table table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.member-task-table th,
+.member-task-table td {
+  padding: 16px 18px;
+  border-bottom: 1px solid #e8edf5;
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+.member-task-table th {
+  background: #f5f7fc;
+  color: #64748b;
+  font-weight: 600;
+}
+
+.member-task-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.member-task-table tbody tr:hover {
+  background: #f5f7fc;
+}
+
+/* =========================================
+   Priority and Status Badges
+========================================= */
+
+.priority-badge,
+.status-badge {
+  display: inline-block;
+  padding: 5px 11px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* Priority colours */
+
+.priority-badge.high {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+.priority-badge.medium {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.priority-badge.low {
+  background: #dcfce7;
+  color: #166534;
+}
+
+/* Task status colours */
+
+.status-badge.in-progress {
+  background: #dbeafe;
+  color: #1d4ed8;
+}
+
+.status-badge.pending {
+  background: #f1f5f9;
+  color: #475569;
+}
+
+.status-badge.overdue {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+.status-badge.completed {
+  background: #dcfce7;
+  color: #166534;
+}
+
+/* =========================================
+   Responsive Layout
+========================================= */
+
+@media (max-width: 992px) {
+  .dashboard-stats,
+  .overview-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 @media (max-width: 768px) {
+  .dashboard-container {
+    padding: 22px;
+  }
+
+  .dashboard-heading h2 {
+    font-size: 23px;
+  }
+
   .manager-project-list {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 576px) {
+  .dashboard-container {
+    padding: 16px;
+  }
+
+  .dashboard-stats,
+  .overview-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .stat-card {
+    padding: 20px;
   }
 }
 

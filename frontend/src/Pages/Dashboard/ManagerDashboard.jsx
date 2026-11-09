@@ -1,3 +1,4 @@
+import ProgressRing from "./Components/ProgressRing";
 
 function ManagerDashboard() {
   // Temporary figures for the Manager Dashboard.
@@ -48,9 +49,11 @@ function ManagerDashboard() {
   ).value;
 
   // Calculate the overall task completion percentage.
-  const completionPercentage = Math.round(
-    (completedTasks / totalTasks) * 100
-  );
+  // If there are no tasks, show 0% instead of an invalid result.
+  const completionPercentage =
+    totalTasks === 0
+      ? 0
+      : Math.round((completedTasks / totalTasks) * 100);
   return (
     <div className="manager-dashboard">
       <div className="dashboard-heading">
@@ -79,31 +82,17 @@ function ManagerDashboard() {
               <h4>{project.name}</h4>
 
               {/* Circular indicator for this project's completion percentage. */}
-              <div className="project-progress-ring">
-                <svg viewBox="0 0 140 140" className="project-progress-chart">
-                  <circle
-                    className="project-progress-bg"
-                    cx="70"
-                    cy="70"
-                    r="58"
-                  />
-
-                  <circle
-                    className="project-progress-fill"
-                    cx="70"
-                    cy="70"
-                    r="58"
-                    strokeDasharray={`${2 * Math.PI * 58}`}
-                    strokeDashoffset={`${
-                      2 * Math.PI * 58 * (1 - project.progress / 100)
-                    }`}
-                  />
-                </svg>
-
-                <div className="project-progress-text">
-                  {project.progress}%
-                </div>
-              </div>
+              <ProgressRing
+                percentage={project.progress}
+                size={140}
+                radius={58}
+                gradientId={`project-${project.name.replace(/\s+/g, "-")}`}
+                colors={["#14b8a6", "#14b8a6"]}
+                className="project-progress"
+                backgroundClassName="project-progress-bg"
+                fillClassName="project-progress-fill"
+                textClassName="project-progress-text"
+              />
             </div>
           ))}
         </div>
@@ -113,53 +102,18 @@ function ManagerDashboard() {
         <h3>Overall Task Completion</h3>
 
         <div className="completion-content">
-          <div
-            className="completion-ring"
-            style={{ "--progress": `${completionPercentage}%` }}
-          >
-            <svg viewBox="0 0 160 160" className="completion-chart">
-              <defs>
-                <linearGradient
-                  id="managerCompletionGradient"
-                  x1="0%"
-                  y1="0%"
-                  x2="100%"
-                  y2="100%"
-                >
-                  <stop offset="0%" stopColor="#14b8a6" />
-                  <stop offset="100%" stopColor="#22c55e" />
-                </linearGradient>
-              </defs>
+          <ProgressRing
+            percentage={completionPercentage}
+            label="COMPLETED"
+            size={160}
+            radius={68}
+            gradientId="managerCompletionGradient"
+            colors={["#14b8a6", "#22c55e"]}
+          />
 
-              {/* Background circle shows the remaining tasks. */}
-              <circle
-                className="completion-ring-bg"
-                cx="80"
-                cy="80"
-                r="68"
-              />
-
-              {/* Colored arc shows the completed tasks. */}
-              <circle
-                className="completion-ring-fill"
-                cx="80"
-                cy="80"
-                r="68"
-                stroke="url(#managerCompletionGradient)"
-                strokeDasharray={`${2 * Math.PI * 68}`}
-                strokeDashoffset={`${
-                  2 * Math.PI * 68 * (1 - completionPercentage / 100)
-                }`}
-              />
-            </svg>
-
-            <div className="completion-ring-text">
-              <strong>{completionPercentage}%</strong>
-              <span>COMPLETED</span>
-            </div>
-          </div>
-
-          <p>28 out of 42 tasks completed</p>
+          <p>
+            {completedTasks} out of {totalTasks} tasks completed
+          </p>
         </div>
       </section>
       {/* Shows how tasks are distributed across the team */}
